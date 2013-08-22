@@ -29,5 +29,5 @@ main() {
         orderedEquals(["Ç","Ğ","I","İ","Ö","Ş","Ü","ç","ğ","ı","i","ö","ş","ü"]));
     // English charcters are considered in alphabet.
     expect(["ü","q"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["q","ü"]));   
-  });  
+  });   
 }

@@ -7,9 +7,9 @@ Turkish String upper-lower case converter and comparator functions for Dart. Nam
 	import 'package:dotless_i/dotless_i.dart';
 	...
 	print(toUpperCaseTr("kısa şiir"));
-	print(toLowerCaseTr("YEŞİL SIĞIR));
+	print(toLowerCaseTr("YEŞİL SIĞIR"));
 	var list = ["açı","acı","ağa","Çalı"];
-	print(list.sort(TURKISH_STRING_COMPARATOR));	
+	print(list..sort(TURKISH_STRING_COMPARATOR));	
 	
 	Output:
 	KISA ŞİİR
