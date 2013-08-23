@@ -29,5 +29,20 @@ main() {
         orderedEquals(["Ç","Ğ","I","İ","Ö","Ş","Ü","ç","ğ","ı","i","ö","ş","ü"]));
     // English charcters are considered in alphabet.
     expect(["ü","q"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["q","ü"]));   
-  });   
+  });  
+  
+  var inputL = "kısa şiir";
+  var inputU = "KISA ŞİİR";  
+  print("UpperCase for $inputL");
+  print("Default= ${inputL.toUpperCase()}, Turkish=${toUpperCaseTr(inputL)}\n"); 
+  print("LowerCase for $inputU");
+  print("Default= ${inputU.toLowerCase()}, Turkish=${toLowerCaseTr(inputU)}\n");  
+  
+  var list = ["ağ","aç","ad"];
+  print("Input= $list");
+  print("Default Sort= ${list..sort()}");
+  
+  list = ["ağ","aç","ad"];  
+  print("Turkish Sort= ${list..sort(TURKISH_STRING_COMPARATOR)}");  
+  
 }
