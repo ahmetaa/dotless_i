@@ -43,6 +43,6 @@ Usage Example:
 	Turkish Sort Ignore Case= [aç, ad, ağ, Az]	
 
 ## Change List
-*0.1.2* Add ignore-case comparator (by mdakin). Documentation fixes.
+*0.1.2* Add ignore-case comparator (by mdakin). Documentation fixes.  
 *0.1.1* Remove unnecessary checks that are already handled by default case conversion. Documentation changes after G+ discussion.  
 *0.1.0* Initial Release.
