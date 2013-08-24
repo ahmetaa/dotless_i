@@ -10,6 +10,7 @@ main() {
     expect('ABCÇDEFGĞHI', toUpperCaseTr('abcçdefgğhı'));
     expect('I', toUpperCaseTr('ı'));
     expect('İ', toUpperCaseTr('i'));
+    expect('ΠİIΔ', toUpperCaseTr('πiıδ'));    
   });
   test('toLowerCaseTr', () {
     expect('abcçdefgğhıijklmnoöprsştuüvyz', toLowerCaseTr('ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ'));
@@ -17,6 +18,7 @@ main() {
     expect('abcçdefgğhı', toLowerCaseTr('ABCÇDEFGĞHI'));
     expect('ı', toLowerCaseTr('I'));
     expect('i', toLowerCaseTr('İ'));
+    expect('πiıδ', toLowerCaseTr('ΠİIΔ'));    
   });
 
   test('Comparator Test', () {
@@ -28,7 +30,11 @@ main() {
     expect(["ü","ş","ö","i","ı","ğ","ç", "Ü","Ş","Ö","İ","I","Ğ","Ç"]..sort(TURKISH_STRING_COMPARATOR),
         orderedEquals(["Ç","Ğ","I","İ","Ö","Ş","Ü","ç","ğ","ı","i","ö","ş","ü"]));
     // English charcters are considered in alphabet.
-    expect(["ü","q"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["q","ü"]));   
+    expect(["ü","q"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["q","ü"]));
+    // out of alphabet range and capital tests
+    expect(["ü","πq"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["ü","πq"]));
+    expect(["ü","!q"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["!q","ü"]));    
+    expect(["ü","Ü"]..sort(TURKISH_STRING_COMPARATOR), orderedEquals(["Ü","ü"]));    
   });  
 
   test('Comparator Test Ignore Case', () {
