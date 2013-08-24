@@ -1,8 +1,8 @@
 dotless_i
 =========
 
-Turkish String upper-lower case converter and comparator functions for Dart. This library is necessary because 
-currently Dart only supports default unicode mappings for casing and default rules does not work for Turkish i->İ and I->i conversions.    
+Turkish String upper-lower case converter and comparator functions for Dart. This library is necessary workaround because 
+currently Dart only supports default unicode mappings for casing and default rules does not work for Turkish i->İ and I->ı conversions.    
   
 Name of the library is "dotless i" because the notorious "ı" character (together with İ) caused countless trouble in computing for Turkish.
 Case methods can be used for some other Turkic alphabets as well (such as  Azerbaijani). Current implementation does not handle two code unit
@@ -20,13 +20,15 @@ Usage Example:
 	print("LowerCase for [$inputU]");
 	print("Default= ${inputU.toLowerCase()}, Turkish=${toLowerCaseTr(inputU)}\n");  
 	  
-	var list = ["ağ","aç","ad"];
+	var list = ["Az","ağ","aç","ad"];
 	print("Input= $list");
 	print("Default Sort= ${list..sort()}");
 	  
-	list = ["ağ","aç","ad"];  
+	list = ["Az","ağ","aç","ad"];  
 	print("Turkish Sort= ${list..sort(TURKISH_STRING_COMPARATOR)}"); 
 	
+	list = ["Az","ağ","aç","ad"];  
+	print("Turkish Sort Ignore Case= ${list..sort(TURKISH_STRING_COMPARATOR_IGNORE_CASE)}"); 	
 	
 	Output:
 	UpperCase for [kısa şiir]
@@ -35,10 +37,12 @@ Usage Example:
 	LowerCase for [KISA ŞİİR]
 	Default= kisa şiir, Turkish=kısa şiir
 	
-	Input= [ağ, aç, ad]
-	Default Sort= [ad, aç, ağ]
-	Turkish Sort= [aç, ad, ağ]
+	Input= [Az, ağ, aç, ad]
+	Default Sort= [Az, ad, aç, ağ]
+	Turkish Sort= [Az, aç, ad, ağ]
+	Turkish Sort Ignore Case= [aç, ad, ağ, Az]	
 
 ## Change List
+*0.1.2* Add ignore-case comparator (by mdakin). Documentation fixes.
 *0.1.1* Remove unnecessary checks that are already handled by default case conversion. Documentation changes after G+ discussion.  
 *0.1.0* Initial Release.
