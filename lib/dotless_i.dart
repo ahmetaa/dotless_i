@@ -90,10 +90,10 @@ class _Lookup {
   }
 
   int getOrder(int codeUnit) => 
-      (codeUnit< 0x41 && codeUnit > 0x15F) ? -1 : orderLookup[codeUnit];
+      (codeUnit< 0x41 || codeUnit > 0x15F) ? -1 : orderLookup[codeUnit];
   
   int getOrderIgnoreCase(int codeUnit) => 
-      (codeUnit< 0x41 && codeUnit > 0x15F) ? -1 : orderLookupIgnoreCase[codeUnit];
+      (codeUnit< 0x41 || codeUnit > 0x15F) ? -1 : orderLookupIgnoreCase[codeUnit];
 
 }
 
