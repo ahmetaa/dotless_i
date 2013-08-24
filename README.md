@@ -4,7 +4,7 @@ dotless_i
 Turkish String upper-lower case converter and comparator functions for Dart. This library is a necessary workaround because 
 currently Dart only supports default unicode mappings for casing and that does not work for Turkish i->İ and I->ı conversions.    
   
-Name of the library is "dotless i" because the notorious "ı" character (together with İ) caused countless trouble in computing for Turkish.
+Name of the library is "dotless i (ı)" because the "ı" character (together with İ) caused countless trouble in computing for Turkish.
 Case methods can be used for some other Turkic alphabets as well (such as  Azerbaijani). Current implementation does not handle two code-unit
 variations yet. Complete special casing rules are defined here : (ftp://ftp.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt)  
 
@@ -43,7 +43,7 @@ Usage Example:
 	Turkish Sort Ignore Case= [aç, ad, ağ, Az]	
 
 ## Change List
-*0.1.3* Bug fix in lookup code.
+*0.1.3* Bug fix in lookup code.  
 *0.1.2* Add ignore-case comparator (by mdakin). Documentation fixes.  
 *0.1.1* Remove unnecessary checks that are already handled by default case conversion. Documentation changes after G+ discussion.  
 *0.1.0* Initial Release.
