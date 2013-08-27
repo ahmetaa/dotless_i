@@ -32,7 +32,7 @@ String toUpperCaseTr(String input) {
 String _toUpper1Length(String input) {
   if(input.codeUnitAt(0)==LATIN_SMALL_LETTER_I_CODE)
     return LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE;
-  else return input.toUpperCase();  
+  else return input.toUpperCase();
 }
 
 /**
@@ -40,7 +40,7 @@ String _toUpper1Length(String input) {
  */
 String toLowerCaseTr(String input) {
   if(input.length==1)
-    return _toLower1Length(input);  
+    return _toLower1Length(input);
   var buffer = new StringBuffer();
   List<int> toAppend = new List<int>();
   for(int codeUnit in input.codeUnits) {
@@ -52,7 +52,7 @@ String toLowerCaseTr(String input) {
       buffer.write(LATIN_SMALL_LETTER_DOTLESS_I);
     } else {
       toAppend.add(codeUnit);
-    }    
+    }
   }
   if(toAppend.length>0){
     buffer.write(new String.fromCharCodes(toAppend).toLowerCase());
@@ -63,7 +63,16 @@ String toLowerCaseTr(String input) {
 String _toLower1Length(String input) {
   if(input.codeUnitAt(0)==LATIN_CAPITAL_LETTER_I_CODE)
     return LATIN_SMALL_LETTER_DOTLESS_I;
-  else return input.toLowerCase();  
+  else return input.toLowerCase();
+}
+
+/**
+ * Returns Capital cased form of a Turkish String.
+ */
+String toCapitalCaseTr(String input) {
+  if(input.length==1)
+    return _toUpper1Length(input);
+  return "${_toUpper1Length(input.substring(0,1))}${toLowerCaseTr(input.substring(1))}";
 }
 
 /// Turkish alphabet aware String Comparator.
@@ -89,10 +98,10 @@ class _Lookup {
     }
   }
 
-  int getOrder(int codeUnit) => 
+  int getOrder(int codeUnit) =>
       (codeUnit< 0x41 || codeUnit > 0x15F) ? -1 : orderLookup[codeUnit];
-  
-  int getOrderIgnoreCase(int codeUnit) => 
+
+  int getOrderIgnoreCase(int codeUnit) =>
       (codeUnit< 0x41 || codeUnit > 0x15F) ? -1 : orderLookupIgnoreCase[codeUnit];
 
 }
@@ -100,7 +109,7 @@ class _Lookup {
 final _Lookup TR_CODE_UNIT_ORDER_LOOKUP = new _Lookup();
 
 /// Some code is used from Dart core.
-int _compareTr(String a, String b, [bool ignoreCase]) {
+int _compareTr(String a, String b, bool ignoreCase) {
   int aLength = a.length;
   int bLength = b.length;
   int len = (aLength < bLength) ? aLength : bLength;
