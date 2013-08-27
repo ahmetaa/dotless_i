@@ -9,8 +9,8 @@ const LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE = "İ";
  * Returns upper case form of a Turkish String.
  */
 String toUpperCaseTr(String input) {
-  if(input.length==1)
-    return _toUpper1Length(input);
+  if(input.length==0) return "";
+  if(input.length==1) return _toUpper1Length(input);
   var buffer = new StringBuffer();
   List<int> toAppend = new List<int>();
   for(int codeUnit in input.codeUnits) {
@@ -39,8 +39,8 @@ String _toUpper1Length(String input) {
  * Returns lower case form of a Turkish String.
  */
 String toLowerCaseTr(String input) {
-  if(input.length==1)
-    return _toLower1Length(input);
+  if(input.length==0) return "";
+  if(input.length==1) return _toLower1Length(input);
   var buffer = new StringBuffer();
   List<int> toAppend = new List<int>();
   for(int codeUnit in input.codeUnits) {
@@ -69,9 +69,9 @@ String _toLower1Length(String input) {
 /**
  * Returns Capital cased form of a Turkish String.
  */
-String toCapitalCaseTr(String input) {
-  if(input.length==1)
-    return _toUpper1Length(input);
+String toTitleCaseTr(String input) {
+  if(input.length==0) return "";
+  if(input.length==1) return _toUpper1Length(input);
   return "${_toUpper1Length(input.substring(0,1))}${toLowerCaseTr(input.substring(1))}";
 }
 
@@ -103,7 +103,6 @@ class _Lookup {
 
   int getOrderIgnoreCase(int codeUnit) =>
       (codeUnit< 0x41 || codeUnit > 0x15F) ? -1 : orderLookupIgnoreCase[codeUnit];
-
 }
 
 final _Lookup TR_CODE_UNIT_ORDER_LOOKUP = new _Lookup();
