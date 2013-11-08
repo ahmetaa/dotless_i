@@ -67,7 +67,7 @@ String _toLower1Length(String input) {
 }
 
 /**
- * Returns Capital cased form of a Turkish String.
+ * Returns Title cased form of a Turkish String.
  */
 String toTitleCaseTr(String input) {
   if(input.length==0) return "";
