@@ -43,6 +43,7 @@ Usage Example:
 	Turkish Sort Ignore Case= [aç, ad, ağ, Az]
 
 ## Change List
+*0.1.5* Dart 1.0 preparation.  
 *0.1.4* Add toTitleCaseTr(). Empty string handling and improved tests.  
 *0.1.3* Bug fix in lookup code.  
 *0.1.2* Add ignore-case comparator (by mdakin). Documentation fixes.  
