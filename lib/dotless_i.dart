@@ -1,9 +1,9 @@
 library dotless_i;
 
-const LATIN_CAPITAL_LETTER_I_CODE = 0x49;
-const LATIN_SMALL_LETTER_I_CODE = 0x69;
-const LATIN_SMALL_LETTER_DOTLESS_I = "ı";
-const LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE = "İ";
+const int LATIN_CAPITAL_LETTER_I_CODE = 0x49;
+const int LATIN_SMALL_LETTER_I_CODE = 0x69;
+const String LATIN_SMALL_LETTER_DOTLESS_I = "ı";
+const String LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE = "İ";
 
 /**
  * Returns upper case form of a Turkish String.
